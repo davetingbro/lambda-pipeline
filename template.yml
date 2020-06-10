@@ -8,9 +8,10 @@ Resources:
       Handler: index.handler
       Runtime: nodejs10.x
       CodeUri: ./
+      Role: arn:aws:iam::741922737521:role/david-ting-helloworld-stack-HelloWorldFunctionRole-15TUPVGCZUX61
       Events:
         MyTimeApi:
           Type: Api
           Properties:
-            Path: /Time
+            Path: /
             Method: GET
