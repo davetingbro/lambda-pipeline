@@ -5,13 +5,14 @@ Description: Lambda functions for HelloWorldAPI
 Globals:
   Function:
     Runtime: nodejs10.x
+    CodeUri: ./
 
 Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
-    CodeUri: ./
     Properties:
       Handler: HelloWorldHandler.HelloWorldFunction
+      Role: &role arn:aws:iam::741922737521:role/david-ting-helloworld-stack-HelloWorldFunctionRole-YMHECZ7NFYSH
       Events:
         HelloWorldApi:
           Type: Api
@@ -23,6 +24,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: PeopleHandler.GetPeopleFunction
+      Role: *role
       Events:
         HelloWorldApi:
           Type: Api
@@ -34,6 +36,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: PeopleHandler.AddToPeopleFunction
+      Role: *role
       Events:
         HelloWorldApi:
           Type: Api
@@ -45,6 +48,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: PersonHandler.DeletePersonFunction
+      Role: *role
       Events:
         HelloWorldApi:
           Type: Api
@@ -56,6 +60,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: PersonHandler.UpdatePersonFunction
+      Role: *role
       Events:
         HelloWorldApi:
           Type: Api
