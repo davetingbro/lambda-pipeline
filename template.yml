@@ -5,7 +5,7 @@ Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: index.handler
+      Handler: HelloWorldHandler.HelloWorldFunction
       Runtime: nodejs10.x
       CodeUri: ./
       Role: arn:aws:iam::741922737521:role/david-ting-helloworld-stack-HelloWorldFunctionRole-15TUPVGCZUX61

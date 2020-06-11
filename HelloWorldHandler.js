@@ -2,7 +2,7 @@ const aws = require("aws-sdk");
 const s3 = new aws.S3();
 const time = require("time");
 
-exports.handler = async (event, context, callback) => {
+exports.HelloWorldFunction = async (event, context, callback) => {
   const params = {
     Bucket: "david-ting-hello-world",
   };
