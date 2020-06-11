@@ -3,7 +3,7 @@ const s3 = new aws.S3();
 
 const BUCKET = "david-ting-hello-world";
 
-exports.getNames = async () => {
+exports.getKeys = async () => {
   const params = { Bucket: BUCKET };
   const s3Objects = (await s3.listObjectsV2(params).promise()).Contents;
 
