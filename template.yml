@@ -10,8 +10,8 @@ Globals:
 Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
+    Role: &role arn:aws:iam::741922737521:role/david-ting-helloworld-stack-HelloWorldFunctionRole-15TUPVGCZUX61
     Properties:
-      Role: &role arn:aws:iam::741922737521:role/david-ting-helloworld-stack-HelloWorldFunctionRole-15TUPVGCZUX61
       Handler: HelloWorldHandler.HelloWorldFunction
       Events:
         HelloWorldApi:
@@ -22,8 +22,8 @@ Resources:
 
   GetPeopleFunction:
     Type: AWS::Serverless::Function
+    Role: *role
     Properties:
-      Role: *role
       Handler: PeopleHandler.GetPeopleFunction
       Events:
         HelloWorldApi:
@@ -34,8 +34,8 @@ Resources:
 
   AddToPeopleFunction:
     Type: AWS::Serverless::Function
+    Role: *role
     Properties:
-      Role: *role
       Handler: PeopleHandler.AddToPeopleFunction
       Events:
         HelloWorldApi:
@@ -46,8 +46,8 @@ Resources:
 
   DeletePersonFunction:
     Type: AWS::Serverless::Function
+    Role: *role
     Properties:
-      Role: *role
       Handler: PersonHandler.DeletePersonFunction
       Events:
         HelloWorldApi:
@@ -58,8 +58,8 @@ Resources:
 
   UpdatePersonFunction:
     Type: AWS::Serverless::Function
+    Role: *role
     Properties:
-      Role: *role
       Handler: PersonHandler.UpdatePersonFunction
       Events:
         HelloWorldApi:
