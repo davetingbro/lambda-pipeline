@@ -5,11 +5,11 @@ Description: Lambda functions for HelloWorldAPI
 Globals:
   Function:
     Runtime: nodejs10.x
-    CodeUri: ./
 
 Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
+    CodeUri: ./
     Properties:
       Handler: HelloWorldHandler.HelloWorldFunction
       Events:
