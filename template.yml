@@ -10,7 +10,7 @@ Resources:
       CodeUri: ./
       Role: arn:aws:iam::741922737521:role/david-ting-helloworld-stack-HelloWorldFunctionRole-15TUPVGCZUX61
       Events:
-        MyTimeApi:
+        HelloWorldApi:
           Type: Api
           Properties:
             Path: /
