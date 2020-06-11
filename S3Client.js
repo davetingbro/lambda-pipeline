@@ -30,3 +30,18 @@ exports.delete = async (key) => {
     if (error) throw error;
   });
 };
+
+exports.put = async (oldKey, newKey) => {
+  const params = {
+    Bucket: BUCKET,
+    CopySource: `/${BUCKET}/${oldKey}`,
+    Key: newKey,
+  };
+
+  await s3.copyObject(params, (error, data) => {
+    if (error) throw error;
+  });
+  await s3.deleteObject({ Bucket: BUCKET, Key: oldKey }, (error, data) => {
+    if (error) throw error;
+  });
+};

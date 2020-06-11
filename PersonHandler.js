@@ -10,4 +10,9 @@ exports.DeletePersonFunction = async (event, context, callback) => {
   }
 };
 
-exports.UpdatePersonFunction = async (event, context, callback) => {};
+exports.UpdatePersonFunction = async (event, context, callback) => {
+  const { name: oldName } = event.pathParameters;
+  const newName = event.body;
+  await s3Client.put(oldName, newName);
+  callback(null, { statusCode: "301" });
+};
