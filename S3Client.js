@@ -20,3 +20,13 @@ exports.post = async (key) => {
     if (error) throw error;
   });
 };
+
+exports.delete = async (key) => {
+  const params = {
+    Bucket: BUCKET,
+    Key: key,
+  };
+  s3.deleteObject(params, (error, data) => {
+    if (error) throw error;
+  });
+};
