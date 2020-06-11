@@ -1,7 +1,7 @@
 const s3Client = require("./S3Client");
 
 exports.DeletePersonFunction = async (event, context, callback) => {
-  const { name } = event.pathParameters.name;
+  const { name } = event.pathParameters;
   try {
     await s3Client.delete(name);
     callback(null, { statusCode: "204" });
