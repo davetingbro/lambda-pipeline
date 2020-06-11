@@ -61,4 +61,4 @@ Resources:
           Type: Api
           Properties:
             Path: /people/{name}
-            Method: DELETE
+            Method: PUT
