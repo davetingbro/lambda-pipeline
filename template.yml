@@ -1,17 +1,62 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
-Description: Outputs the time
+Description: Lambda functions for HelloWorldAPI
+
+Globals:
+  Function:
+    Type: AWS::Serverless::Function
+    Runtime: nodejs10.x
+    CodeUri: ./
+    Properties:
+      Role: arn:aws:iam::741922737521:role/david-ting-helloworld-stack-HelloWorldFunctionRole-15TUPVGCZUX61
+
 Resources:
   HelloWorldFunction:
-    Type: AWS::Serverless::Function
     Properties:
       Handler: HelloWorldHandler.HelloWorldFunction
-      Runtime: nodejs10.x
-      CodeUri: ./
-      Role: arn:aws:iam::741922737521:role/david-ting-helloworld-stack-HelloWorldFunctionRole-15TUPVGCZUX61
       Events:
         HelloWorldApi:
           Type: Api
           Properties:
             Path: /
             Method: GET
+
+  GetPeopleFunction:
+    Properties:
+      Handler: PeopleHandler.GetPeopleFunction
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            Path: /people
+            Method: GET
+
+  AddToPeopleFunction:
+    Properties:
+      Handler: PeopleHandler.AddToPeopleFunction
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            Path: /people
+            Method: POST
+
+  DeletePersonFunction:
+    Properties:
+      Handler: PersonHandler.DeletePersonFunction
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            Path: /people/{name}
+            Method: DELETE
+
+  UpdatePersonFunction:
+    Properties:
+      Handler: PersonHandler.UpdatePersonFunction
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            Path: /people/{name}
+            Method: DELETE
