@@ -4,7 +4,6 @@ Description: Lambda functions for HelloWorldAPI
 
 Globals:
   Function:
-    Type: AWS::Serverless::Function
     Runtime: nodejs10.x
     CodeUri: ./
     Properties:
@@ -12,6 +11,7 @@ Globals:
 
 Resources:
   HelloWorldFunction:
+    Type: AWS::Serverless::Function
     Properties:
       Handler: HelloWorldHandler.HelloWorldFunction
       Events:
@@ -22,6 +22,7 @@ Resources:
             Method: GET
 
   GetPeopleFunction:
+    Type: AWS::Serverless::Function
     Properties:
       Handler: PeopleHandler.GetPeopleFunction
       Events:
@@ -32,6 +33,7 @@ Resources:
             Method: GET
 
   AddToPeopleFunction:
+    Type: AWS::Serverless::Function
     Properties:
       Handler: PeopleHandler.AddToPeopleFunction
       Events:
@@ -42,6 +44,7 @@ Resources:
             Method: POST
 
   DeletePersonFunction:
+    Type: AWS::Serverless::Function
     Properties:
       Handler: PersonHandler.DeletePersonFunction
       Events:
@@ -52,6 +55,7 @@ Resources:
             Method: DELETE
 
   UpdatePersonFunction:
+    Type: AWS::Serverless::Function
     Properties:
       Handler: PersonHandler.UpdatePersonFunction
       Events:
