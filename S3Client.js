@@ -9,3 +9,14 @@ exports.getKeys = async () => {
 
   return s3Objects.map((obj) => obj["Key"]);
 };
+
+exports.post = async (key) => {
+  const params = {
+    Bucket: BUCKET,
+    Key: key,
+  };
+
+  s3.putObject(params, (error, data) => {
+    if (error) throw error;
+  });
+};
